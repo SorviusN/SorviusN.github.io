@@ -1,0 +1,66 @@
+.button {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.button.create {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-right: 0.25em;
+}
+
+.button.create:hover {
+  opacity: 0.5;
+  transition: opacity 250ms ease-in;
+}
+
+.delete button {
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin-top: 1.5em;
+  font-size: 0.7em;
+}
+
+.delete button:hover {
+  color: var(--clr-darker);
+}
+
+.new-task-creator .button.create {
+  color: var(--clr-primary);
+}
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  padding: 0.3em;
+
+  transition: border-bottom 100ms ease-in-out;
+  order: 2;
+}
+
+.new::placeholder {
+  opacity: 0.4;
+}
+
+.new:focus {
+  border-bottom-width: 3px;
+}
+
+.new:focus::placeholder {
+  opacity: 0.2;
+}
+
+.new.user {
+  font-size: 1.1rem;
+}
