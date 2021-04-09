@@ -1,0 +1,63 @@
+:root {
+  --clr-primary: #4477809f;
+  --clr-lighter: #e4aa3e6b;
+  --clr-darker: #181306e1;
+}
+
+body {
+  margin: 0;
+  font-family: "Barlow", serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-darker);
+
+  display: grid;
+  grid:
+    "header header header ." auto
+    ". users tasks ." auto
+    ". . . ." auto /
+    1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+header {
+  margin-top: 4rem;
+  margin-right: 5.3rem;
+  background-color: var(--clr-lighter);
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+  border-radius: 10%;
+  color: #e3e3e3d5;
+  width: 140px;
+  height: 120px;
+}
+
+.title {
+  grid-area: header;
+  text-align: left;
+  font-family: "Barlow", serif;
+  font-size: calc(7vw + 2rem);
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: 3px;
+  margin: -0.35em 0 0.5em;
+}
+
+form {
+  display: flex;
+}
+
+/* we used the type checkbox:focus + the custom-checkbox child of 
+parent label to be able to tab through each checkbox.
+*/
+
+.footer {
+  width: 100%;
+  height: 25px;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e3e3e34f;
+  background-color: var(--clr-darker);
+}

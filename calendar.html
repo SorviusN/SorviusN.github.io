@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskaway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,400;0,500;1,100;1,300;1,400;1,500&family=Josefin+Slab:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,500&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/home/main.css">
+    <link rel="stylesheet" href="./css/calendar/calendarstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script defer src="calendarscript.js"></script>
+</head>
+
+<body>
+<h1 class="title">taskaway calendar</h1>
+
+<header class="navbar">
+    <nav>
+        <ul class="navbarlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div class="calendar">
+        <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+                <h2></h2>
+                <p></p>
+            </div>
+            <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+        <div class="days">
+            <div class="previous-date"></div>
+            <div class="current-day"></div>
+            <div class="next-date"></div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-content">
+        <p class="copyright">
+            Created by SorviusN (Jona Brown)
+        </p>
+    </div>
+</footer>
+</body>

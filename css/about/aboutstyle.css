@@ -1,0 +1,17 @@
+.about {
+  margin-left: 10rem;
+  margin-bottom: 40rem;
+  opacity: 0.8;
+}
+
+h5 {
+  font-size: x-large;
+}
+
+p {
+  font-size: 600;
+}
+
+img {
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+}

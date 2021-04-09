@@ -1,0 +1,26 @@
+.user-list {
+  line-height: 1.7;
+  font-size: 1.6rem;
+  list-style: circle;
+}
+
+.user-list-title {
+  opacity: 0.8;
+  display: inline;
+}
+
+.all-users {
+  grid-area: users;
+}
+
+.active-user {
+  font-weight: 800;
+}
+
+.user-name {
+  cursor: pointer;
+}
+
+.user-name:hover {
+  opacity: 0.7;
+}

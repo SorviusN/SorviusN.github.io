@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskaway</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,400;0,500;1,100;1,300;1,400;1,500&family=Josefin+Slab:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,500&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/home/main.css">
+    <link rel="stylesheet" href="./css/home/users.css">
+    <link rel="stylesheet" href="./css/home/tasklist.css">
+    <link rel="stylesheet" href="./css/home/buttons.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+<h1 class="title">taskaway.io</h1>
+<header>
+    <nav>
+        <ul class="navbarlist">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="all-users">
+    <h2 class="user-list-title">Taskers</h2>
+    <ul class="user-list" users-list>
+        <li class="active-user"></li>
+        <li class="user-name"></li>
+    </ul>
+    <form action="" data-new-user-form>
+        <input type="text" 
+        class="new user"
+        data-new-user-input
+        placeholder="Add a user to assign tasks"
+        aria-label="Add a user to assign tasks"
+    />
+    <button class="button create" aria-label="create new user">+</button>
+    </form>
+</div>
+
+<div class="todo-list" data-user-display-container> 
+    <div class="todo-header"> 
+        <h2 class="todo-title" data-user-title></h2>
+        <p class="todo-count" data-user-count></p>
+    </div>
+    <div class="todo-body">
+        <div class="tasks" data-tasks>
+        </div>
+        <div class="new-task-creator">
+            <form action="" data-new-task-form>
+                <input type="text"
+                data-new-task-input 
+                class="new task"
+                placeholder="Add a task for the user"
+                aria-label="Add a task for the user"
+            />
+            <button class="button create" class="" >+</button>
+            </form>
+        </div>
+        <div class="delete">
+            <button class="delete button" data-delete-user-button>Delete User</button>
+            <button class="clear button" data-clear-complete-tasks>Clear completed tasks</button>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p class="copyright">
+            Created by SorviusN (Jona Brown)
+        </p>
+    </div>
+</footer>
+
+</div>
+<template id="task-template">
+    <div class="task">
+        <input type="checkbox"/>
+        <label>
+            <span class="custom-checkbox"></span>
+        </label>
+    </div> 
+</template>
+</body>
+</html>
