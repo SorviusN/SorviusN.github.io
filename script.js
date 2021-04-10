@@ -1,4 +1,4 @@
-/*importing elements from HTML source */
+//importing elements from index.html and storing them in constants
 const usersContainer = document.querySelector('[users-list]')
 const newUserForm = document.querySelector('[data-new-user-form')
 const newUserInput = document.querySelector('[data-new-user-input')
@@ -13,19 +13,20 @@ const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input')
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks]')
 
-/*creating local storage key value pairs for the browser to store*/
+//creating local storage key value pairs for the browser to store
 const LOCAL_STORAGE_USER_KEY = 'task.users' 
 const LOCAL_STORAGE_SELECTED_USER_ID_KEY = 'task.selectedUserId' 
 let users = JSON.parse(localStorage.getItem(LOCAL_STORAGE_USER_KEY)) || []
 let selectedUserId = localStorage.getItem(LOCAL_STORAGE_SELECTED_USER_ID_KEY )
 
-// adds users to the main user list
+//adds users to the main user list
 usersContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'li')
     selectedUserId = e.target.dataset.userId
     saveAndRender()
 })
-// adds tasks for a user to complete
+
+//checks off a task from the selected user
 tasksContainer.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'input') {
         const selectedUser = users.find(user => user.id === selectedUserId)
@@ -35,7 +36,8 @@ tasksContainer.addEventListener('click', e => {
         renderTaskCount(selectedUser)
     }
 })
-// checks whether or not a user is highlighted currently. If none are highlighted then do not display any list.
+
+//renders the users and task list screen. If no users are highlighted then do not display any task list
 function render() {
     clearElement(usersContainer)
     renderUsers()
@@ -52,7 +54,8 @@ function render() {
         renderTasks(selectedUser)
     }
 }
-// renders all tasks from the current user that is selected.
+
+//renders all tasks from the current user that is selected
 function renderTasks(selectedUser) {
     selectedUser.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true)
@@ -65,13 +68,14 @@ function renderTasks(selectedUser) {
         tasksContainer.appendChild(taskElement)
     })
 }
-// dynamically displays the task count in text format to the user
+
+//displays the incomplete task count in text format for the selected user
 function renderTaskCount(selectedUser) {
     const incompleteTaskCount = selectedUser.tasks.filter(task => !task.complete).length
     const taskString = incompleteTaskCount === 1 ? "task" : "tasks"
     userCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`
 }
-//
+
 function createUser(name) {
     return { id: Date.now().toString(),     
         name: name,
@@ -86,6 +90,7 @@ function createTask(name) {
     }   
 }
 
+//renders all users present in localstorage
 function renderUsers() {
     users.forEach(user => {
         const userElement = document.createElement('li')
@@ -97,28 +102,32 @@ function renderUsers() {
     })
 }
 
+//filters out all tasks that are complete and renders task list without the completed tasks
 clearCompleteTasksButton.addEventListener('click', e => {
     const selectedUser = users.find(user => user.id === selectedUserId)
     selectedUser.tasks = selectedUser.tasks.filter(task => !task.complete)
     saveAndRender()
 })
 
+//filters out all users that are not selected, which in turn deletes the selected user
 deleteUserButton.addEventListener('click', e => {
     users = users.filter(user => user.id !== selectedUserId)
     selectedUserId = null
     saveAndRender()
 })
 
+//adds a new user to the users list
 newUserForm.addEventListener('submit', e  => {
 e.preventDefault();
-const userName = newUserInput.value
-if (userName == null || userName === '') return
-const user = createUser(userName)
-newUserInput.value = null
-users.push(user)
+const userName = newUserInput.value //store input from textbox
+if (userName == null || userName === '') return // if text is blank or null, do not create a new user
+const user = createUser(userName) // creates a name and unique id for the user
+newUserInput.value = null // clears the textbox after inputting the user
+users.push(user) // adds a user to the users .json list 
 saveAndRender()
 })
 
+//adds a new task to the task list
 newTaskForm.addEventListener('submit', e  => {
 e.preventDefault();
 const taskName = newTaskInput.value
@@ -130,19 +139,18 @@ selectedUser.tasks.push(task)
 saveAndRender()
 })
 
-/*A save function for saving to local storage */
+//saves the user and selected user into localstorage
 function save() {
     localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(users))
     localStorage.setItem(LOCAL_STORAGE_SELECTED_USER_ID_KEY, selectedUserId)
 }
 
-/* combines the save and render option */
 function saveAndRender() {
     save()
     render()
 }
 
-/* clears the parameter */
+//clears the element parameter
 function clearElement(element) { 
     while(element.firstChild) { 
         element.removeChild(element.firstChild)

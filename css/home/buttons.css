@@ -27,6 +27,7 @@
 .delete button:hover {
   color: var(--clr-darker);
 }
+
 .new {
   background: transparent;
   border: 0;
@@ -43,6 +44,7 @@
 .new-task-creator .button.create {
   color: var(--clr-primary);
 }
+
 [type="checkbox"] {
   opacity: 0;
   position: absolute;
